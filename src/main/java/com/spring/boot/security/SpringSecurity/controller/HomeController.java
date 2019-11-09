@@ -9,13 +9,21 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.qos.logback.classic.Logger;
 
 @Controller
-public class LoginController {
+public class HomeController {
 	
 	
-	@RequestMapping(value="/validate",method=RequestMethod.GET)
+	@RequestMapping(value="/")
+	public String defaultHome()
+	{
+		
+		
+		return "home";
+		
+	}
+	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home()
 	{
-		System.out.println("Logged In");
+		
 		
 		return "home";
 		
