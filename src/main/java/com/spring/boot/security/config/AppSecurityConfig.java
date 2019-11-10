@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
@@ -43,8 +44,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 		//We need to set service for provider so that it can interact with database
 		//We have created custom userdetails service-CustomUserDetailService
 		provider.setUserDetailsService(userDetailsService);
-		//Below will set no password encoder meanwhile
+		/*Below will set no password encoder meanwhile
 		provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+		 */
+		//Bcrypt Password encoder
+		provider.setPasswordEncoder(new BCryptPasswordEncoder());
 		
 		
 		return provider;
