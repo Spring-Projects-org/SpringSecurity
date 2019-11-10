@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome Rahat
+Welcome ${username}...
+Last Login: ${lastLogin}
 </body>
 </html>
