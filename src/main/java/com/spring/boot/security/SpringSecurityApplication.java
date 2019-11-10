@@ -1,4 +1,4 @@
-package com.spring.boot.security.SpringSecurity;
+package com.spring.boot.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

@@ -1,4 +1,4 @@
-package com.spring.boot.security.SpringSecurity.controller;
+package com.spring.boot.security.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
