@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome ${username}...
-Last Login: ${lastLogin}
-<br>
-<a href=/logout>Logout</a>
+You are logged out !!
+<a href="/">Home</a>
 </body>
 </html>

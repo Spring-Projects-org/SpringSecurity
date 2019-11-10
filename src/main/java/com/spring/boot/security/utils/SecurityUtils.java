@@ -25,6 +25,12 @@ public class SecurityUtils {
 		return username;
 	}
 	
+	public static String getUser()
+	{
+		
+		return SecurityContextHolder.getContext().getAuthentication().getName();
+	}
+	
 	public String getUserLastLogin(String username,DataSource dataSource)
 	{
 		String sql="select max(lastLogin) as lastLogin from user_event where username=?";

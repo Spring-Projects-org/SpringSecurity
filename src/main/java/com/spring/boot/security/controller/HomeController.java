@@ -32,8 +32,8 @@ public class HomeController {
 	public String defaultHome()
 	{
 		
+		return "redirect:home";
 		
-		return "home";
 		
 	}
 	@RequestMapping(value="/home",method=RequestMethod.GET)
@@ -41,7 +41,7 @@ public class HomeController {
 	{
 		
 		SecurityUtils securityUtils=new SecurityUtils();
-		String username=securityUtils.getUserName();
+		String username=securityUtils.getUser();
 		/*//The SecurityContextHolder is a helper class that provides access to the security contex
 		In order to get the current username, you first need a SecurityContext, which is obtained from the SecurityContextHolder. 
 		This  SecurityContext  kepy the user details in an Authentication object,which can be obtained by calling the getAuthentication()  method 
@@ -75,6 +75,24 @@ public class HomeController {
 		
 		System.out.println("lastLogin"+securityUtils.getUserLastLogin(username,datasource));
 		return "home";
+		
+	}
+	
+	@RequestMapping(value="/login")
+	public String loginPage()
+	{
+		
+		return "login";
+		
+		
+	}
+	
+	@RequestMapping(value="/logout-success")
+	public String logoutPage()
+	{
+		
+		return "logout";
+		
 		
 	}
 

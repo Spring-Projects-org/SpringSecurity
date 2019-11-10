@@ -19,7 +19,7 @@ public class AppConfig {
 	@Value("${spring.datasource.password}")
 	private String password;
 	
-	@Bean	
+	/*@Bean	
 	public DataSource getDataSource()
 	{
 		DriverManagerDataSource datasource=new DriverManagerDataSource();
@@ -30,5 +30,5 @@ public class AppConfig {
 		return datasource;
 		
 	}
-
+*/
 }
