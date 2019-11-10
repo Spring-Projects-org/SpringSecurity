@@ -1,5 +1,7 @@
 package com.spring.boot.security.utils;
 
+import java.text.SimpleDateFormat;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,18 @@ public class SecurityUtils {
 		JdbcTemplate jdbcTemplate=new JdbcTemplate(dataSource);
 		String lastLogin=jdbcTemplate.queryForObject(sql, new Object[] {username}, String.class);		
 		return lastLogin;
+		
+	}
+	
+	public void logUserEvent(String username,DataSource dataSource)
+	{
+		java.util.Date dt = new java.util.Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String currentDate=sdf.format(dt);
+		String sql="insert into user_event (lastLogin,username) values('"+currentDate+"','"+username+"')";
+		JdbcTemplate jdbcTemplate=new JdbcTemplate(dataSource);
+		jdbcTemplate.execute(sql);		
+		
 		
 	}
 

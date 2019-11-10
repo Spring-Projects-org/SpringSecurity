@@ -1,26 +1,15 @@
 package com.spring.boot.security.controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mysql.jdbc.Statement;
-import com.spring.boot.security.dao.UserRepository;
 import com.spring.boot.security.utils.SecurityUtils;
-
-import ch.qos.logback.classic.Logger;
 
 @Controller
 public class HomeController {
@@ -68,12 +57,10 @@ public class HomeController {
 		lastLogin=rs.getString(1);	
 		}*/
         
-		System.out.println("username:"+ username);
 		model.addAttribute("username", username);
-		model.addAttribute("lastLogin", securityUtils.getUserLastLogin(username,datasource));
+		model.addAttribute("lastLogin", securityUtils.getUserLastLogin(username,datasource));		
 		
-		
-		System.out.println("lastLogin"+securityUtils.getUserLastLogin(username,datasource));
+		securityUtils.logUserEvent(username,datasource);
 		return "home";
 		
 	}
